@@ -5,3 +5,8 @@
 :root {
   font-family: "Roboto", sans-serif;
 }
+
+button:focus,
+input[type="checkbox"]:focus {
+  outline: 2px solid #03ce0393;
+}
