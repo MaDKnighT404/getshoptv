@@ -3,7 +3,7 @@ import VideoPage from "./pages/VideoPage";
 
 function App() {
   return (
-    <div className="flex h-screen min-w-[300px] flex-col">
+    <main className="flex h-screen min-w-[300px] flex-col">
       <BrowserRouter>
         <Routes>
           <Route
@@ -12,7 +12,7 @@ function App() {
           ></Route>
         </Routes>
       </BrowserRouter>
-    </div>
+    </main>
   );
 }
 
