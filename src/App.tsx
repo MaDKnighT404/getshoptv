@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import VideoPage from "./pages/VideoPage";
 import PhonePage from "./pages/PhonePage";
+import FinalPage from "./pages/FinalPage";
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
           <Route
             path="/phone"
             element={<PhonePage />}
+          />
+          <Route
+            path="/final"
+            element={<FinalPage />}
           />
         </Routes>
       </BrowserRouter>

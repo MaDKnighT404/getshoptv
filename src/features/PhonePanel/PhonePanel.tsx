@@ -4,7 +4,12 @@ import { UiButton } from "../../components/Ui/UiButton";
 import { useNavigate } from "react-router-dom";
 import { isPhoneFullyFilled } from "../../helpers";
 import { validateNumber } from "../../helpers/api";
-const PhonePanel = () => {
+
+const PhonePanel = ({
+  setModalIsOpen,
+}: {
+  setModalIsOpen: (value: boolean) => void;
+}) => {
   const [phoneValue, setPhoneValue] = useState("");
   const id = useId();
   const navigate = useNavigate();
@@ -13,6 +18,8 @@ const PhonePanel = () => {
     const isValid = await validateNumber(phoneValue);
     if (isValid) {
       navigate("/final");
+    } else {
+      setModalIsOpen(true);
     }
   };
 
