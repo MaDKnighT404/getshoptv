@@ -22,7 +22,8 @@ const PhonePage = () => {
       <PhonePanel setModalIsOpen={setModalIsOpen} />
       <Watermark />
       <UiButton
-        className="fixed right-2 top-2 z-30 rounded-sm bg-white w-[88px] h-[52px] text-2xl text-black border-2 border-black"
+        variant="cancel"
+        className="fixed right-2 top-2 z-30"
         onClick={handleButtonClick}
       >
         X

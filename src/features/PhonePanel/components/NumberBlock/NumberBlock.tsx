@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { UiButton } from "../../../../components/Ui/UiButton";
 
 const NumberBlock = ({
   phoneValue,
@@ -22,26 +23,29 @@ const NumberBlock = ({
   return (
     <div className="grid grid-cols-3 gap-4 py-7">
       {["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((number) => (
-        <button
+        <UiButton
+          variant="secondary"
           key={number}
-          className="border-2 border-black px-8 py-3"
+          className="px-8 py-3"
           onClick={() => handleNumberClick(number)}
         >
           {number}
-        </button>
+        </UiButton>
       ))}
-      <button
-        className="col-span-2 border-2 border-black px-8 py-3"
+      <UiButton
+        variant="secondary"
+        className="col-span-2 px-8 py-3"
         onClick={handleDeleteClick}
       >
         Стереть
-      </button>
-      <button
-        className="border-2 border-black px-8 py-3"
+      </UiButton>
+      <UiButton
+        variant="secondary"
+        className="px-8 py-3"
         onClick={() => handleNumberClick("0")}
       >
         0
-      </button>
+      </UiButton>
     </div>
   );
 };

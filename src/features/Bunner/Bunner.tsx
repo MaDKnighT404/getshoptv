@@ -34,7 +34,8 @@ const Bunner = () => {
       />
       <p className="w-[130px] text-sm">Сканируйте QR-код или нажмите ОК</p>
       <UiButton
-        className="w-[130px] bg-black p-4 text-blue-300"
+        variant="primary"
+        className="w-[130px] text-xl bg-black p-4 text-blue-300 active:py-[15px]"
         onClick={handleButtonClick}
       >
         OK

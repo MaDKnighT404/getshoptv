@@ -76,8 +76,9 @@ const PhonePanel = ({
         </svg>
       </div>
       <UiButton
+        variant="primary"
         disabled={!isFormValid(phoneValue, isChecked)}
-        className="mt-2 h-10 w-full border border-gray-700 text-gray-700"
+        className="mt-2 w-full text-gray-700 py-2"
         onClick={handleButtonClick}
       >
         ПОДТВЕРДИТЬ НОМЕР
