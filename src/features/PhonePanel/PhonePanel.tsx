@@ -1,5 +1,5 @@
-import { useId, useState } from "react";
 import InputMask from "react-input-mask";
+import { useId, useState } from "react";
 import { UiButton } from "../../components/Ui/UiButton";
 import { useNavigate } from "react-router-dom";
 import { isPhoneFullyFilled } from "../../helpers";
