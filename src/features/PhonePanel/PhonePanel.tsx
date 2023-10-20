@@ -3,13 +3,17 @@ import InputMask from "react-input-mask";
 import { UiButton } from "../../components/Ui/UiButton";
 import { useNavigate } from "react-router-dom";
 import { isPhoneFullyFilled } from "../../helpers";
+import { validateNumber } from "../../helpers/api";
 const PhonePanel = () => {
-  const id = useId();
   const [phoneValue, setPhoneValue] = useState("");
+  const id = useId();
   const navigate = useNavigate();
 
-  const handleButtonClick = () => {
-    navigate("/final");
+  const handleButtonClick = async () => {
+    const isValid = await validateNumber(phoneValue);
+    if (isValid) {
+      navigate("/final");
+    }
   };
 
   return (

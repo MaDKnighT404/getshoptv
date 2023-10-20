@@ -9,7 +9,6 @@ const PhonePage = () => {
         src={backgroundImage}
         className="fixed inset-0 h-full w-full object-cover"
       />
-      
       <PhonePanel />
       <Watermark />
     </div>
