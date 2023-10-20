@@ -1,4 +1,4 @@
-import { Bunner } from "../features";
+import { Bunner } from "../features/Bunner";
 
 const VideoPage = () => {
   return (
