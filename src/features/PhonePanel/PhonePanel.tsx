@@ -1,9 +1,10 @@
 import InputMask from "react-input-mask";
-import { useId, useState } from "react";
+import { ChangeEvent, useId, useState } from "react";
 import { UiButton } from "../../components/Ui/UiButton";
 import { useNavigate } from "react-router-dom";
-import { isPhoneFullyFilled } from "../../helpers";
+import { isFormValid } from "../../helpers";
 import { validateNumber } from "../../helpers/api";
+import NumberBlock from "./components/NumberBlock/NumberBlock";
 
 const PhonePanel = ({
   setModalIsOpen,
@@ -11,6 +12,7 @@ const PhonePanel = ({
   setModalIsOpen: (value: boolean) => void;
 }) => {
   const [phoneValue, setPhoneValue] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
   const id = useId();
   const navigate = useNavigate();
 
@@ -23,8 +25,12 @@ const PhonePanel = ({
     }
   };
 
+  const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(event.target.checked);
+  };
+
   return (
-    <div className="fixed left-0 top-0 flex h-full w-[380px] flex-col items-center gap-3 bg-blue-200 px-12 py-10 text-center">
+    <div className="fixed left-0 top-0 z-10 flex h-full w-[380px] flex-col items-center gap-3 bg-blue-200 px-12 py-10 text-center">
       <h2 className="text-2xl">Введите ваш номер мобильного телефона</h2>
 
       <InputMask
@@ -38,12 +44,14 @@ const PhonePanel = ({
       <p className="text-sm">
         и с Вами свяжется наш менеждер для дальнейшей консультации
       </p>
-      <div></div>
+      <NumberBlock />
       <div className="relative flex w-full">
         <input
           className="border-1 peer h-10 w-10 shrink-0 appearance-none self-center border-2 border-black"
           id={id}
           type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
         />
         <label
           className="absolute z-20 cursor-pointer select-none pl-14 text-left text-sm text-gray-700"
@@ -65,7 +73,7 @@ const PhonePanel = ({
         </svg>
       </div>
       <UiButton
-        disabled={!isPhoneFullyFilled(phoneValue)}
+        disabled={!isFormValid(phoneValue, isChecked)}
         className="mt-2 h-10 w-full border border-gray-700 text-gray-700"
         onClick={handleButtonClick}
       >
