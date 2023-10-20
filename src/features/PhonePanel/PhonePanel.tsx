@@ -11,7 +11,7 @@ const PhonePanel = ({
 }: {
   setModalIsOpen: (value: boolean) => void;
 }) => {
-  const [phoneValue, setPhoneValue] = useState("");
+  const [phoneValue, setPhoneValue] = useState<string>("+7(___)___-__-__");
   const [isChecked, setIsChecked] = useState(false);
   const id = useId();
   const navigate = useNavigate();
@@ -44,10 +44,13 @@ const PhonePanel = ({
       <p className="text-sm">
         и с Вами свяжется наш менеждер для дальнейшей консультации
       </p>
-      <NumberBlock />
-      <div className="relative flex w-full">
+      <NumberBlock
+        phoneValue={phoneValue}
+        setPhoneValue={setPhoneValue}
+      />
+      <div className="relative flex w-full items-center">
         <input
-          className="border-1 peer h-10 w-10 shrink-0 appearance-none self-center border-2 border-black"
+          className="border-1 peer h-8 w-8 shrink-0 appearance-none self-center border-2 border-black"
           id={id}
           type="checkbox"
           checked={isChecked}
@@ -60,7 +63,7 @@ const PhonePanel = ({
           Согласие на обработку персональных данных
         </label>
         <svg
-          className="absolute ml-1.5 mt-1.5 hidden h-7 w-7 peer-checked:block"
+          className="absolute ml-1.5 hidden h-5 w-5 peer-checked:block"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="none"
