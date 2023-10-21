@@ -1,6 +1,6 @@
-import { UiButton } from "../../../../components/Ui/UiButton";
+import { UiButton } from "../../../../../../components/Ui/UiButton";
 
-const NumberBlock = ({
+const NumbersBlock = ({
   handleNumberClick,
   handleDeleteClick,
 }: {
@@ -40,4 +40,4 @@ const NumberBlock = ({
   );
 };
 
-export default NumberBlock;
+export default NumbersBlock;

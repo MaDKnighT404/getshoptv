@@ -2,8 +2,10 @@ import { MouseEvent, useEffect } from "react";
 import { UiButton } from "../Ui/UiButton";
 
 const Modal = ({
+  value,
   setModalIsOpen,
 }: {
+  value: string;
   setModalIsOpen: (value: boolean) => void;
 }) => {
   useEffect(() => {
@@ -31,7 +33,7 @@ const Modal = ({
       onClick={handleOverlayClick}
       className="fixed inset-0 z-50 flex h-full w-full items-center justify-center bg-black/50 px-4"
     >
-      <div className="relative flex h-full max-h-[190px] w-full max-w-[300px] flex-col items-center rounded border border-gray-700 bg-white px-5 py-10 text-center shadow md:max-h-[220px]">
+      <div className="relative flex h-full max-h-[170px] w-full max-w-[300px] flex-col items-center gap-3 rounded border border-gray-700 bg-white px-5 py-10 text-center shadow md:max-h-[200px]">
         <UiButton
           variant="cancel"
           onClick={() => setModalIsOpen(false)}
@@ -41,9 +43,8 @@ const Modal = ({
         </UiButton>
         <div className="absolute left-0 top-0 h-full w-4 bg-red-600" />
         <h2 className="justify-start text-xl md:text-3xl">Ошибка!</h2>
-        <h3 className="text-md mt-5 md:text-xl">
-          Извините, но кажется вы ошиблись в своём номере телефона
-        </h3>
+        <h3 className="text-md md:text-xl">Не верно введен номер телефона.</h3>
+        <h4 className="text-mdtext-red-500 md:text-xl">{value}</h4>
       </div>
     </div>
   );
