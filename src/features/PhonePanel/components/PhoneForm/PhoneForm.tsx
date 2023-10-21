@@ -67,7 +67,7 @@ const PhoneForm = ({
         <UiButton
           variant="primary"
           disabled={!isFormValid(phoneValue, isChecked)}
-          className="mt-4 w-full py-2 text-gray-700"
+          className="mt-4 w-full py-2 text-gray-700 text-white"
           onClick={handleSubmit}
         >
           ПОДТВЕРДИТЬ НОМЕР
