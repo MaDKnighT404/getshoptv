@@ -15,8 +15,7 @@ const Timer = () => {
 
     const intervalId = setInterval(() => {
       setSeconds((prevSeconds) => {
-        if (prevSeconds === 1) {
-          navigate("/");
+        if (prevSeconds === 0) {
           return 12; // сбрасываем таймер обратно на 10 секунд
         }
         return prevSeconds - 1;
@@ -31,10 +30,16 @@ const Timer = () => {
     };
   }, [navigate]);
 
+  useEffect(() => {
+    if (seconds === 0) {
+      navigate("/");
+    }
+  }, [seconds, navigate]);
+
   if (seconds > 9) return null;
 
   return (
-    <div className="fixed left-2 top-2 z-50 flex  w-[230px] rounded-xl bg-slate-50 p-1 ">
+    <div className="fixed left-2 top-2 z-50 flex  w-[230px] rounded-xl bg-slate-50 py-1 px-2 ">
       {seconds}с до возврата на главную
     </div>
   );
