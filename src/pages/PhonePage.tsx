@@ -1,11 +1,11 @@
 import { KeyboardEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { Timer } from "../features/Timer";
 import { PhonePanel } from "../features/PhonePanel";
 import { Watermark } from "../components/Watermark";
 import { UiButton } from "../components/Ui/UiButton";
 import { arrowNavigation } from "../helpers";
 import backgroundImage from "/images/background.webp";
-import { Timer } from "../features/Timer";
 
 const PhonePage = () => {
   const navigate = useNavigate();

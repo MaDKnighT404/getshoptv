@@ -8,6 +8,7 @@ const Bunner = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    //Таймер появления рекламного баннера
     const timer = setTimeout(() => setIsShow(true), 5000);
     return () => clearTimeout(timer); // очистка таймера при unmount'e компонента
   }, []);
@@ -18,13 +19,16 @@ const Bunner = () => {
 
   return (
     <div
-      className={`transition-translate fixed bottom-5 right-5 z-10 flex w-full max-w-[250px] flex-col items-center justify-center gap-5 bg-blue-300 pb-2.5 pt-5 text-center duration-500 ease-in ${
+      className={`fixed inset-y-0 right-0 z-10 my-auto flex max-h-fit max-w-[270px] flex-col items-center justify-center gap-5 bg-blue-300 pb-2.5 pt-5 text-center transition ${
         isShow ? "translate-x-0" : "translate-x-[300px]"
       }`}
     >
-      <p className="px-3 font-bold">
-        ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША! ПОДАРИТЕ ЕМУ ГРУЗОВИК!
-        <span className="block text-sm">(а лучше два!)</span>
+      <p className="px-1 font-bold leading-5">
+        ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША!
+        <br />
+        ПОДАРИТЕ ЕМУ ГРУЗОВИК!
+        <br />
+        <span className="text-sm">(а лучше два!)</span>
       </p>
       <img
         width={100}
@@ -32,10 +36,10 @@ const Bunner = () => {
         src={QRImage}
         alt="QR"
       />
-      <p className="w-[130px] text-sm">Сканируйте QR-код или нажмите ОК</p>
+      <p className="px-12 text-sm">Сканируйте QR-код или нажмите ОК</p>
       <UiButton
         variant="primary"
-        className="w-[150px] text-xl bg-black p-2 text-blue-300"
+        className="bg-black p-2 px-16 text-xl text-blue-300"
         onClick={handleButtonClick}
       >
         OK

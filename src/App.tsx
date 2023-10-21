@@ -8,20 +8,21 @@ function App() {
   const [currentTime, setCurrentTime] = useState(0);
   return (
     <main className="flex h-screen min-w-[300px] flex-col">
-      <VideoContext.Provider value={{ currentTime, setCurrentTime }}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <VideoContext.Provider value={{ currentTime, setCurrentTime }}>
           <Routes>
             <Route
               path="/"
               element={<VideoPage />}
             />
+
             <Route
               path="/phone"
               element={<PhonePage />}
             />
           </Routes>
-        </BrowserRouter>
-      </VideoContext.Provider>
+        </VideoContext.Provider>
+      </BrowserRouter>
     </main>
   );
 }

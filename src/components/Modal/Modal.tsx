@@ -43,7 +43,7 @@ const Modal = ({
         </UiButton>
         <div className="absolute left-0 top-0 h-full w-4 bg-red-600" />
         <h2 className="justify-start text-xl md:text-3xl">Ошибка!</h2>
-        <h3 className="text-md md:text-xl">Не верно введен номер телефона.</h3>
+        <h3 className="text-md md:text-xl">Неверно введен номер телефона.</h3>
         <h4 className="text-mdtext-red-500 md:text-xl">{value}</h4>
       </div>
     </div>

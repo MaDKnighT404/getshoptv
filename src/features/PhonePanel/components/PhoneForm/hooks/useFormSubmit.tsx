@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { isFormValid } from "../../../../../helpers";
 import { validateNumber } from "../../../../../helpers/api";
 
-const useFormSubmit = (
-  phoneValue: string,
-  isChecked: boolean,
-  setIsSuccessFormSubmit: (value: boolean) => void,
-) => {
+const useFormSubmit = ({
+  phoneValue,
+  setPhoneValue,
+  setIsSuccessFormSubmit,
+}: {
+  phoneValue: string;
+  setPhoneValue: (value: string) => void;
+  setIsSuccessFormSubmit: (value: boolean) => void;
+}) => {
   const [invalidphoneValue, setInvalidphoneValue] = useState<string>("");
+  const [isChecked, setIsChecked] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!isFormValid(phoneValue, isChecked)) {
@@ -24,8 +29,18 @@ const useFormSubmit = (
       setInvalidphoneValue(phoneValue);
       setModalIsOpen(true);
     }
+
+    setPhoneValue("+7(___)___-__-__");
+    setIsChecked(false);
   };
 
-  return { handleSubmit, invalidphoneValue, modalIsOpen, setModalIsOpen };
+  return {
+    handleSubmit,
+    invalidphoneValue,
+    modalIsOpen,
+    setModalIsOpen,
+    isChecked,
+    setIsChecked,
+  };
 };
 export default useFormSubmit;

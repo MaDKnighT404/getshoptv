@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Timer = () => {
-  const [seconds, setSeconds] = useState(10);
+  const [seconds, setSeconds] = useState(12);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Timer = () => {
     const intervalId = setInterval(() => {
       setSeconds((prevSeconds) => {
         if (prevSeconds === 0) {
-          return 12; // сбрасываем таймер обратно на 10 секунд
+          return 12; // сбрасываем таймер обратно на 12 секунд
         }
         return prevSeconds - 1;
       });
@@ -36,11 +36,11 @@ const Timer = () => {
     }
   }, [seconds, navigate]);
 
-  if (seconds > 9) return null;
+  if (seconds > 9) return null; // не показываем таймер пока больше 9 секунд
 
   return (
-    <div className="fixed left-2 top-2 z-50 flex  w-[230px] rounded-xl bg-slate-50 py-1 px-2 ">
-      {seconds}с до возврата на главную
+    <div className="fixed left-2 top-2 z-50 flex rounded-xl bg-slate-50 px-2 py-1 ">
+      {seconds}с до возврата на главную...
     </div>
   );
 };
