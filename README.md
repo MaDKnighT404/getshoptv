@@ -1,3 +1,3 @@
 ## Test work for GetShop.TV
 
-### Deploy:
+### Deploy: https://getshop-tv-test.netlify.app
