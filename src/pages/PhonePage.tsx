@@ -5,6 +5,7 @@ import { Watermark } from "../components/Watermark";
 import { UiButton } from "../components/Ui/UiButton";
 import { arrowNavigation } from "../helpers";
 import backgroundImage from "/images/background.webp";
+import { Timer } from "../features/Timer";
 
 const PhonePage = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const PhonePage = () => {
       />
       <PhonePanel />
       <Watermark />
+      <Timer />
       <UiButton
         variant="cancel"
         className="fixed right-2 top-2 z-30"
